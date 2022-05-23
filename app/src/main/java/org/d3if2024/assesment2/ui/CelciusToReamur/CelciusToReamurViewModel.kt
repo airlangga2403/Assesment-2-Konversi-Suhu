@@ -1,4 +1,4 @@
-package org.d3if2024.assesment2.ui.CelciusToFarenhit
+package org.d3if2024.assesment2.ui.CelciusToReamur
 
 import android.content.ClipData
 import androidx.lifecycle.LiveData
@@ -16,17 +16,16 @@ import org.d3if2024.assesment2.model.HasilKonversiSuhu
 import org.d3if2024.assesment2.model.KategoriSuhu
 import org.d3if2024.assesment2.model.hitungKonversiSuhu
 
-class CelciusToFarenhitViewModel(private val db: SuhuDao) : ViewModel() {
+class CelciusToReamurViewModel(private val db: SuhuDao) : ViewModel() {
     private val hasilKonversi = MutableLiveData<HasilKonversiSuhu?>()
 
     fun getHasilKonversiSuhu(): LiveData<HasilKonversiSuhu?> = hasilKonversi
 
-    fun hitungKonversiSuhuCecliusToFarenhit(suhuCeclius: Float) {
-//        val hasilConverCelcius = "Farenhit"/
-        val hasil = (suhuCeclius * 9 / 5) + 32 // Hasil > Convert Dari Celcius Ke Farenhit
+    fun hitungKonversiSuhuCelciusToReamur(suhuCeclius: Float) {
+        val hasil = suhuCeclius*4/5
         val dataKonversi = SuhuEntity(
             suhuCelcius = suhuCeclius,
-            hasilConvertCelcius = "${hasil.toString()}°F"
+            hasilConvertCelcius = "${hasil.toString()}°R"
         )
         hasilKonversi.value = dataKonversi.hitungKonversiSuhu()
         viewModelScope.launch {
@@ -46,5 +45,4 @@ class CelciusToFarenhitViewModel(private val db: SuhuDao) : ViewModel() {
             return true
         }
     }
-    fun getHasilBmi(): LiveData<HasilKonversiSuhu?> = hasilKonversi
 }

@@ -12,7 +12,7 @@ import org.d3if2024.assesment2.model.HasilKonversiSuhu
 import org.d3if2024.assesment2.model.hitungKonversiSuhu
 
 class HistoriViewModel(private val db: SuhuDao) : ViewModel() {
-    private val hasilBmi = MutableLiveData<HasilKonversiSuhu?>()
+    private val hasilKonversiSuhu = MutableLiveData<HasilKonversiSuhu?>()
 
     val data = db.getKonversiSuhu()
 

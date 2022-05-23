@@ -2,6 +2,7 @@ package org.d3if2024.assesment2.ui.home
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +41,13 @@ class HomeFragment : Fragment() {
         binding.celciusToKelvinBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_celciusToKelvinFragment2) }
         binding.celciusToReamurBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_celciusToReamurFragment) }
         binding.sejarahSingkatSuhuBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_sejarahSingkatSuhuFragment) }
-
+        binding.switchDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked){
+                AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_YES)
+            }else{
+                AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -52,6 +59,10 @@ class HomeFragment : Fragment() {
         when(item.itemId){
             R.id.histori -> {
                 findNavController().navigate(R.id.action_homeFragment_to_historiFragment)
+                return true
+            }
+            R.id.tentang_aplikasi -> {
+                findNavController().navigate(R.id.action_homeFragment_to_aboutMeFragment)
                 return true
             }
         }

@@ -1,5 +1,6 @@
 package org.d3if2024.assesment2.ui.histori
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -62,6 +63,7 @@ class HistoriFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     private fun hapusData() {
         MaterialAlertDialogBuilder(requireContext())

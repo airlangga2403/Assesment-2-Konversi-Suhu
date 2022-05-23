@@ -5,10 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import org.d3if2024.assesment2.databinding.FragmentCelciusToKelvinBinding
+import org.d3if2024.assesment2.db.SuhuDb
 
 
 class CelciusToKelvinFragment : Fragment() {
+    private val viewModel: CelciusToKelvinViewModel by lazy{
+        val db = SuhuDb.getInstance(requireContext())
+        val factory = CelciusToKelvinViewModelFactory(db.itemDao)
+        ViewModelProvider(this,factory)[CelciusToKelvinViewModel::class.java]
+    }
+
     private lateinit var binding: FragmentCelciusToKelvinBinding
 
     override fun onCreateView(
@@ -20,4 +28,35 @@ class CelciusToKelvinFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.calculateBtn.setOnClickListener {
+            hitungKonversiSuhu()
+            convertSuhuKelvin()
+        }
+    }
+
+    private fun convertSuhuKelvin(){
+        val stringInTextField = binding.celciusToKelvinEditText.text.toString()
+        val suhu = stringInTextField.toDoubleOrNull()
+
+        // Hitung Conversi Suhu Celcius Ke Kelvin
+        if (suhu == null || suhu == 0.0){
+            displayConvert(0.0)
+            return
+        }
+        var kelvin = suhu+273
+        displayConvert(kelvin)
+    }
+
+    private fun hitungKonversiSuhu(){
+        val suhuCelcius = binding.celciusToKelvinEditText.text.toString()
+        viewModel.hitungKonversiSuhuCelciusToKelvin(suhuCelcius.toFloat())
+    }
+
+
+    private fun displayConvert(dataCelcius: Double) {
+        binding.result.text = "Nilai Hasil Konversi: ${dataCelcius}" + "°K"
+    }
 }

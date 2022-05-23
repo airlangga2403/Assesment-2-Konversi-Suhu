@@ -16,7 +16,7 @@ class SejarahSingkatAdapter(
     private val dataset: List<ModelSuhu>
 ) : RecyclerView.Adapter<SejarahSingkatAdapter.ConvertViewHolder>() {
 
-    class ConvertViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ConvertViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.item_title)
         val imageView: ImageView = view.findViewById(R.id.item_image)
     }

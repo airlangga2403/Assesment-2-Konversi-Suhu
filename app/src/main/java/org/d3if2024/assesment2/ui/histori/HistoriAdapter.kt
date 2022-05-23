@@ -55,16 +55,12 @@ class HistoriAdapter :
         fun bind(item: SuhuEntity) = with(binding) {
             val hasilKonversiSuhu = item.hitungKonversiSuhu()
             kategoriTextView.text = hasilKonversiSuhu.suhuConvert
-            val colorRes = when (hasilKonversiSuhu.suhuConvert) {
-                "Farenhit" -> R.color.farenhit
-                "KELVIN" -> R.color.kelvin
-                else -> R.color.reamur
-            }
+            val colorRes = R.color.blue_500
             val circleBg = kategoriTextView.background as GradientDrawable
             circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-            bmiTextView.text = item.suhuCelcius.toString()
-            dataTextView.text = item.hasilConvertCelcius
+            bmiTextView.text = "Suhu Celcius ${item.suhuCelcius.toString()}℃"
+            dataTextView.text = "Hasil Convert ${item.hasilConvertCelcius}"
         }
     }
 

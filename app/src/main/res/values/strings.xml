@@ -36,4 +36,6 @@
     <string name="farenhit">Farenhit</string>
     <string name="kelvin">Kelvin</string>
     <string name="reamur">Reamur</string>
+    <string name="copyright">Aplikasi Konversi Suhu Dari Celcius Ke Suhu Lainnya dan juga terdapat Sejarah Singkat Tentang ditemukannya Suhu\ndibuat untuk Menyelesaikan Tugas Assesment2 Mobpro \n\n@Copyright Airlangga Permana Putra \n23 Mei 2022</string>
+    <string name="share_data">Share Data</string>
 </resources>
