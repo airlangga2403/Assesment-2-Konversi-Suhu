@@ -1,6 +1,5 @@
 package org.d3if2024.assesment2.ui.histori
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.d3if2024.assesment2.R
+import org.d3if2024.assesment2.adapter.HistoriAdapter
 import org.d3if2024.assesment2.databinding.FragmentHistoriBinding
 import org.d3if2024.assesment2.db.SuhuDb
 

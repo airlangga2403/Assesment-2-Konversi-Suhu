@@ -40,7 +40,6 @@ class HomeFragment : Fragment() {
         binding.celciusToFarenhitBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_celciusToFarenhitFragment2) }
         binding.celciusToKelvinBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_celciusToKelvinFragment2) }
         binding.celciusToReamurBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_celciusToReamurFragment) }
-        binding.sejarahSingkatSuhuBtn.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_sejarahSingkatSuhuFragment) }
         binding.switchDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked){
                 AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_YES)

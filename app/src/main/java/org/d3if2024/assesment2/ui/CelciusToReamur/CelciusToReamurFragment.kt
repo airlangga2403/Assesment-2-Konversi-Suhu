@@ -1,11 +1,11 @@
 package org.d3if2024.assesment2.ui.CelciusToReamur
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import org.d3if2024.assesment2.R
 import org.d3if2024.assesment2.databinding.FragmentCelciusToReamurBinding
 import org.d3if2024.assesment2.db.SuhuDb
 
@@ -26,6 +26,7 @@ class CelciusToReamurFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentCelciusToReamurBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -35,6 +36,33 @@ class CelciusToReamurFragment : Fragment() {
         binding.calculateBtn.setOnClickListener {
             hitungKonversiSuhu()
             convertSuhuReamur()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.apps_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_share){
+            shareData()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun shareData(){
+        val suhuCelcius = binding.celciusToReamurEditText.text.toString()
+        val hasilConvertSuhu = binding.result.text.toString()
+        var message = "Suhu Celcius : ${suhuCelcius} \n${hasilConvertSuhu}"
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager
+            ) != null
+        ) {
+            startActivity(shareIntent)
         }
     }
 

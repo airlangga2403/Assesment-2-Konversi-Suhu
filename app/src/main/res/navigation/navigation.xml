@@ -16,9 +16,6 @@
             android:id="@+id/action_homeFragment_to_celciusToReamurFragment"
             app:destination="@id/celciusToReamurFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_sejarahSingkatSuhuFragment"
-            app:destination="@id/sejarahSingkatSuhuFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_celciusToKelvinFragment2"
             app:destination="@id/celciusToKelvinFragment2" />
         <action
@@ -43,11 +40,6 @@
         android:name="org.d3if2024.assesment2.ui.CelciusToReamur.CelciusToReamurFragment"
         android:label="Celcius To Reamur"
         tools:layout="@layout/fragment_celcius_to_reamur" />
-    <fragment
-        android:id="@+id/sejarahSingkatSuhuFragment"
-        android:name="org.d3if2024.assesment2.ui.SejarahSingkat.SejarahSingkatSuhuFragment"
-        android:label="Sejarah Singkat Suhu"
-        tools:layout="@layout/fragment_sejarah_singkat_suhu" />
     <fragment
         android:id="@+id/historiFragment"
         android:name="org.d3if2024.assesment2.ui.histori.HistoriFragment"

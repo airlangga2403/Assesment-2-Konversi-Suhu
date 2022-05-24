@@ -1,6 +1,5 @@
-package org.d3if2024.assesment2.ui.histori
+package org.d3if2024.assesment2.adapter
 
-import android.annotation.SuppressLint
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.d3if2024.assesment2.R
 import org.d3if2024.assesment2.databinding.ItemHistoriBinding
 import org.d3if2024.assesment2.db.SuhuEntity
-import org.d3if2024.assesment2.model.KategoriSuhu
 import org.d3if2024.assesment2.model.hitungKonversiSuhu
 import java.text.SimpleDateFormat
 import java.util.*
